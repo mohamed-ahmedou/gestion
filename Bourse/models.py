@@ -1,5 +1,6 @@
 from typing import List
 from django.db import models
+
 from django.db.models.fields.files import ImageField
 
 # Create your models here.
@@ -12,9 +13,9 @@ from django.db.models.fields.files import ImageField
 #     List = models.ForeignKey('TodoList', null=False, on_delete=models.CASCADE)
 # class TodoList(models.Model):
 #     name = models.CharField(max_length=255)
-
 class image(models.Model):
-    url = models.ImageField(upload_to='todo/static/image', null=True)
+    url = models.ImageField(upload_to='Bourse/static/image', null=True)
+    nom = models.CharField(max_length=40)
 class operation(models.Model):
     nom = models.CharField(max_length=30)
     Date = models.DateField(max_length=40)
@@ -43,4 +44,3 @@ class facture(models.Model):
     id_voiture = models.ForeignKey(voiture,on_delete = models.CASCADE)
     type = models.CharField(max_length=50)
     Date = models.DateField(max_length=50)
-    
