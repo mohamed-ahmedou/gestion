@@ -24,6 +24,7 @@ from django.urls.conf import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Bourse.urls')),
+    # path('posts/',include('posts.urls')),
     # path('posts', include('posts.urls'))
     # path('post)
   
