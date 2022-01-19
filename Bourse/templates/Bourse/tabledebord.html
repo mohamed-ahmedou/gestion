@@ -2,7 +2,120 @@
 
 {% block content %}
 
-<h1> Tabledebord </h1>
+<h1 class="p-3" > Tabledebord </h1>
+
+<div class="container pb-5">
+    <div class="row">
+      <div class="col-sm">
+        Totale Factures :  <span class="badge bg-success">{{ t_facture }}</span> 
+      </div>
+      <div class="col-sm">
+        Achats : <span class="badge bg-danger">{{ a_facture }}</span>
+      </div>
+      <div class="col-sm">
+        Vends :  <span class="badge bg-secondary">{{v_facture}}</span>
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="row">
+      <div class="col">
+        <div class="card" >
+            <div class="card-body">
+              <h5 class="card-title">Client</h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Tel</th>
+                    <th scope="col">Afficher</th>
+        
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for item in client %}
+                      <tr>
+                    <td>{{item.nom}}</td>
+                    <td>{{item.prenom}}</td>
+                    <td>{{item.tel}}</td>
+                    <td> <a href="{% url 'client' item.id %}"> <i class="far fa-eye"></i> </a></td>
+                     </tr>
+                    {% endfor %} 
+                  
+                </tbody>
+              </table>
+                
+            </div>
+          </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 40rem"; >
+            <div class="card-body">
+              <h5 class="card-title">Facture</h5>
+              <h6 class="card-subtitle mb-2 text-muted"><a class="btn btn-success" href="{% url 'create'%}">create</a></h6>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Client</th>
+                    <th scope="col">Voiture</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                    <th scope="col"></th>
+        
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for item in facture %}
+                      <tr>
+                    <td>{{item.client}}</td>
+                    <td>{{item.voiture}}</td>
+                    <td>{{item.type}}</td>
+                    <td>{{item.date}}</td>
+                    <td>
+                        {% comment %} class="btn btn-warning"  {% endcomment %}
+                     <a class="btn btn-success" href="#"><i class="fas fa-user-plus"></i></a>
+                     <a class="btn btn-warning"  href="#" > <i class="fas fa-edit"></i></a>   
+                     <a class="btn btn-danger" href="#" ><i class="fas fa-trash-alt"></i></a>  
+                     
+                    </td>
+                     </tr>
+                    {% endfor %} 
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row pt-5">
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+      </div>
+      
+    </div>
+  </div>
 
 {% endblock %}
 

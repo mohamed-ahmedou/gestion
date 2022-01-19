@@ -1,7 +1,41 @@
 {% extends 'Bourse/Principale.html' %}
 
 {% block content %}
+<h1 class"pt-5 pl-5 "> voiture </h1>
 
-<h1> voiture </h1>
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Matricule</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Couleur</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Modele</th>
+            <th scope="col">Numerosachet</th>
+            <th scope="col">Client</th>
+           
+            {% comment %} <th scope="col">Client</th> {% endcomment %}
+
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in voitures %}
+              <tr>
+            {% comment %} <th scope="row">2020AA06</th> {% endcomment %}
+            <td>{{item.matricule}}</td>
+            <td>{{item.marque}}</td>
+            <td>{{item.couleur}}</td>
+            <td>{{item.prix}}</td>
+            <td>{{item.modele}}</td>
+            <td>{{item.numerosachet}}</td>
+            <td>{{item.client}}</td>
+            
+             </tr>
+            {% endfor %} 
+          
+        </tbody>
+      </table>
+     </div>
 
 {% endblock %}

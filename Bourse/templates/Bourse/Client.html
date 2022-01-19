@@ -2,6 +2,67 @@
 
 {% block content %}
 
-<h1> client </h1>
+<h1 class="p-3"> Client </h1>
+
+<div class="container pb-5">
+    <div class="row">
+      <div class="col-sm">
+      <h6> Nom : {{ client.nom }} </h6>
+      </div>
+      <div class="col-sm">
+        <h6> Prenom : {{ client.prenom }} </h6>
+      </div>
+      <div class="col-sm">
+        <h6> Tel : {{ client.tel }} </h6>
+    </div>
+    <div class="col-sm">
+        <h6> Email : {{ client.email }} </h6>
+    </div>
+    <div class="col-sm">
+      <h6> Nombre du facture : {{nombre_facture}} </h6>
+  </div>
+    
+</div>
+<div class="container p-2">
+    {% comment %} <div class="card" >
+        <div class="card-body"> {% endcomment %}
+          {% comment %} <h5 class="card-title"> </h5> {% endcomment %}
+          {% comment %} <h6 class="card-subtitle mb-2 text-muted"></h6> {% endcomment %}
+          <table class="table">
+            <thead>
+           <tr>
+         
+          <th scope="col">Voiture</th>
+          <th scope="col">Marque</th>
+          <th scope="col">Type</th>
+          <th scope="col">Date</th>
+          <th scope="col">Action</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in factures %}
+          <tr>
+        <td>{{item.voiture}}</td>
+        <td>{{item.voiture.marque}}</td>
+        <td>{{item.type}}</td>
+        <td>{{item.date}}</td>
+        <td>
+            <a class="btn btn-success" href="#"><i class="fas fa-user-plus"></i></a>
+                     <a class="btn btn-warning"  href="#" > <i class="fas fa-edit"></i></a>   
+                     <a class="btn btn-danger" href="#" ><i class="fas fa-trash-alt"></i></a>  
+        </td>
+         </tr>
+        {% endfor %} 
+      
+    </tbody>
+  </table>
+    
+</div>
+</div>
+</div>
+{% comment %} #-------------------------------- {% endcomment %}
+
+     
 
 {% endblock %}

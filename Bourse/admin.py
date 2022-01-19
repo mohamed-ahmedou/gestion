@@ -1,27 +1,26 @@
 from django.contrib import admin
 
-from .models import Client, facture, voiture, image, operation
+from .models import *
 
 class operationaff(admin.ModelAdmin):
-    list_display = ('nom','Date','id_voiture')
+    list_display = ('nom','date','voiture')
 class factureaff(admin.ModelAdmin):
-    list_display = ('id_client','id_voiture','type','Date')
+    list_display = ('client','voiture','type','date')
 class clientaff(admin.ModelAdmin):
-    list_display = ('nom','prenom','email','tel')
+    list_display = ('nom','prenom')
 class voitureaff(admin.ModelAdmin):
-    list_display = ('matricule','Marque','couleur','prix','modele','numerosachet','id_client')
+    list_display = ('matricule','marque','couleur','prix','modele','numerosachet','client')
 class imageaff(admin.ModelAdmin):
-    list_dsiplay = ('url')
-# class imageaff(admin.ModelAdmin):
-#     list_display = ('nom')
+    list_display = ('url','voiture')
 
-admin.site.register(Client,clientaff)
-admin.site.register(facture,factureaff)
-admin.site.register(voiture,voitureaff)
-admin.site.register(operation,operationaff)
-admin.site.register(image,imageaff)
+admin.site.register(Client)
+admin.site.register(Facture)
+admin.site.register(Voiture)
+admin.site.register(Operation)
+admin.site.register(Image)
 # @admin.register(Todo, TodoList)
 # class GenricAdmin(admin.ModelAdmin):
 #     pass
 
 # Register your models here.
+
