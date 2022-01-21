@@ -54,7 +54,7 @@
         <div class="card" style="width: 40rem"; >
             <div class="card-body">
               <h5 class="card-title">Facture</h5>
-              <h6 class="card-subtitle mb-2 text-muted"><a class="btn btn-success" href="{% url 'create'%}">create</a></h6>
+              <h6 class="card-subtitle mb-2 text-muted"><a class="btn btn-success" href="{% url 'ajouter'%}">ajouter</a></h6>
               <table class="table">
                 <thead>
                   <tr>
@@ -76,9 +76,11 @@
                     <td>{{item.date}}</td>
                     <td>
                         {% comment %} class="btn btn-warning"  {% endcomment %}
-                     <a class="btn btn-success" href="#"><i class="fas fa-user-plus"></i></a>
-                     <a class="btn btn-warning"  href="#" > <i class="fas fa-edit"></i></a>   
-                     <a class="btn btn-danger" href="#" ><i class="fas fa-trash-alt"></i></a>  
+                     {% comment %} <a class="btn btn-success" href="#"><i class="fas fa-user-plus"></i></a> {% endcomment %}
+                     <a  href="{% url 'modifier' item.id %}" > <i class="fas fa-edit"></i></a>   
+                     {% comment %} <a class="text-danger" href="{% url 'supprimer' item.id %}" ><i class="fas fa-trash-alt"></i></a>  
+                      {% endcomment %}
+                      <a class="text-danger" href="/confirmersupression/{{item.id}}/" ><i class="fas fa-trash-alt"></i></a>  
                      
                     </td>
                      </tr>

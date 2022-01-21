@@ -14,7 +14,7 @@
             <th scope="col">Modele</th>
             <th scope="col">Numerosachet</th>
             <th scope="col">Client</th>
-           
+            <th scope="col">Action</th>
             {% comment %} <th scope="col">Client</th> {% endcomment %}
 
           </tr>
@@ -30,7 +30,11 @@
             <td>{{item.modele}}</td>
             <td>{{item.numerosachet}}</td>
             <td>{{item.client}}</td>
-            
+            <td>
+            <a class="" href="#"><i class="fas fa-user-plus"></i></a>
+            <a  href="#" > <i class="fas fa-edit"></i></a>   
+            <a class="text-danger" href="#" ><i class="fas fa-trash-alt"></i></a>
+            </td>
              </tr>
             {% endfor %} 
           
