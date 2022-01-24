@@ -30,6 +30,7 @@ class Voiture(models.Model):
     prix = models.FloatField(max_length=40)
     modele = models.CharField(max_length=40)
     numerosachet = models.CharField(max_length=40)
+    image = models.ImageField(upload_to='static/image', null=True)
     client = models.ForeignKey(Client ,related_name='voitures', on_delete=models.CASCADE)
     def __str__(self):
       return self.modele
@@ -37,9 +38,9 @@ class Voiture(models.Model):
 class Image(models.Model):
     url = models.ImageField(upload_to='static/image', null=True)
     voiture = models.ForeignKey(Voiture ,related_name='images', on_delete=models.CASCADE)
-
+    
     def __str__(self):
-        return self.url
+          return self.voiture
 
 		
 class Operation(models.Model):

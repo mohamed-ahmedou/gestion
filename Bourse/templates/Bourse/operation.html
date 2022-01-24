@@ -1,0 +1,69 @@
+{% extends 'Bourse/Principale.html' %}
+
+{% block content %}
+
+<h1 class="p-3"> Operation</h1>
+
+{% comment %} <div class="container pb-5">
+    <div class="row">
+      <div class="col-sm">
+      <h6> Nom : {{ operation.matricule }} </h6>
+      </div>
+      <div class="col-sm">
+        <h6> Marque : {{ voiture.marque }} </h6>
+      </div>
+      <div class="col-sm">
+        <h6> Couleur : {{ voiture.couleur }} </h6>
+    </div>
+    <div class="col-sm">
+        <h6> Prix : {{voiture.prix }} </h6>
+    </div>
+    <div class="col-sm">
+        <h6> Modele : {{voiture.modele }} </h6>
+    </div>
+    <div class="col-sm">
+      <h6> Nombre du operation : {{nombre_operation}} </h6>
+  </div>
+    
+</div> {% endcomment %}
+<div class="container p-2">
+    {% comment %} <div class="card" >
+        <div class="card-body"> {% endcomment %}
+          {% comment %} <h5 class="card-title"> </h5> {% endcomment %}
+          {% comment %} <h6 class="card-subtitle mb-2 text-muted"></h6> {% endcomment %}
+          <table class="table">
+            <thead>
+           <tr>
+         
+          <th scope="col">Nom</th>
+          <th scope="col">Voiture</th>
+          <th scope="col">Date</th>
+          <th scope="col">Action</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in operations%}
+          <tr>
+        <td>{{item.nom}}</td>
+        <td>{{item.voiture}}</td>
+        <td>{{item.date}}</td>
+        <td>
+            <a class="" href="#"><i class="fas fa-user-plus"></i></a>
+                     <a  href="#" > <i class="fas fa-edit"></i></a>   
+                     <a class="text-danger" href="#" ><i class="fas fa-trash-alt"></i></a>  
+        </td>
+         </tr>
+        {% endfor %} 
+      
+    </tbody>
+  </table>
+    
+</div>
+</div>
+</div>
+{% comment %} #-------------------------------- {% endcomment %}
+
+     
+
+{% endblock %}
