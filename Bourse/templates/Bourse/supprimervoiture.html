@@ -1,0 +1,18 @@
+{% extends 'Bourse/Principale.html' %}
+{% load static %}
+
+{% block content %} 
+
+<div class="card" >
+  <div class="card-body">
+      <h3> Etes-vous sur ? </h3> 
+
+      {% csrf_token %}
+      <a href="{% url 'gerervoiture' %}"> Retourner </a>
+      
+      <a href="/supprimervoiture/{{id}}/"> supprimer </a>
+    
+  </div>
+</div>
+
+{% endblock %}

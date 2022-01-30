@@ -1,52 +1,45 @@
-{% extends 'Bourse/Principale.html' %}
+{% extends 'Bourse/Principaleclient.html' %}
 {% load static %}
 {% block content %}
 
-<div class="p-4"
-<div class="container">
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Matricule</th>
-            <th scope="col">Marque</th>
-            <th scope="col">Couleur</th>
-            <th scope="col">Prix</th>
-            <th scope="col">Modele</th>
-            <th scope="col">Numerosachet</th>
-            <th scope="col">Client</th>
-            <th scope="col">Image</th>
-            <th scope="col">Action</th>
-            <th scope="col">Afficher</th>
             
+            <div class="row">
+             <div class= "col-4" > 
+               <div class="col-md-5">
+                <div class="card" style="width: 25rem;">
+                   <div class="card-body">
+                        <p class="card-text">Marque: {{vv.marque}}</p>
+                         <p class="card-text">Couleur: {{vv.couleur}}</p>
+                         <p class="card-text">Prix: {{vv.prix}}</p>
+                         <p class="card-text">Modele: {{vv.modele}}</p>
+                         <p class="card-text">Numero sachet: {{vv.numerosachet}}</p>
+                  </div>
+               </div>
+             </div>
+           </div>
+           
+           <div class= "col-4" > 
+            <div class="col-md-5">
+             <div class="card" style="width: 25rem;">
 
-          </tr>
-        </thead>
-        <tbody>
-            {% for item in voirevoiture %}
-              <tr>
-            
-            <td>{{item.matricule}}</td>
-            <td>{{item.marque}}</td>
-            <td>{{item.couleur}}</td>
-            <td>{{item.prix}}</td>
-            <td>{{item.modele}}</td>
-            <td>{{item.numerosachet}}</td>
-            <td>{{item.client}}</td>
-            <td><img src="{{item.image.url}}" width="70%"  /> </td>
-            <td>
-            <a class="" href="#"><i class="fas fa-user-plus"></i></a>
-            <a  href="#" > <i class="fas fa-edit"></i></a>   
-            <a class="text-danger" href="#" ><i class="fas fa-trash-alt"></i></a>
-            </td>
-            {% comment %} <td> <a href="{% url 'operation'  %}"> <i class="far fa-eye"></i> </a></td> {% endcomment %}
-            <td> <a href="/operation/{{item.id}}"> <i class="far fa-eye"></i> </a></td>
-             </tr>
-            {% endfor %} 
-          
-        </tbody>
-      </table>
-     </div>
+                 <img class="card-img-top" <img src="{{vv.image.url}}"  width="90%" height="20%" alt="Card image cap">
+                
+            </div>
+          </div>
+        </div>
+      </div>
 
-
+        
+      <div class="row">
+        <div class= "col-4" > 
+          <div class="col-md-5">
+           <div class="card" style="width: 25rem;">
+            <div class="col-md-15 form-group">
+             <a  class="btn btn-primary rounded-0 py-2 px-4" href="/"> Retourner</a>
+              <span class="submitting"></span>
+            </div>
+          </div>
+        </div>
+      </div>
 
 {% endblock %}

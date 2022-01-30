@@ -2,32 +2,31 @@
 
 {% block content %}
 
-<h1 class="p-3"> Client </h1>
-
-<div class="container pb-5">
-    <div class="row">
-      <div class="col-sm">
-      <h6> Nom : {{ client.nom }} </h6>
-      </div>
-      <div class="col-sm">
-        <h6> Prenom : {{ client.prenom }} </h6>
-      </div>
-      <div class="col-sm">
-        <h6> Tel : {{ client.tel }} </h6>
+<h1 class="p-3">  </h1>
+<h1 class="p-3">  </h1>
+<center>
+<div class="row">
+  <div class= "col-4" > 
+    <div class="col-md-5">
+     <div class="card" style="width: 25rem;">
+        <div class="card-body">
+             <p class="card-text">Nom   :   {{client.nom}}</p>
+              <p class="card-text">Prenom  :  {{client.prenom}}</p>
+              <p class="card-text">Email  :  {{client.email}}</p>
+              <p class="card-text">Tel  :   {{client.tel}}</p>
+              <p class="card-text">Nombre de facture  :  {{nombre_facture}} </p>
+       </div>
     </div>
-    <div class="col-sm">
-        <h6> Email : {{ client.email }} </h6>
-    </div>
-    <div class="col-sm">
-      <h6> Nombre du facture : {{nombre_facture}} </h6>
   </div>
-    
 </div>
+</div>
+</center>
+
+  
+    
+<center>
 <div class="container p-2">
-    {% comment %} <div class="card" >
-        <div class="card-body"> {% endcomment %}
-          {% comment %} <h5 class="card-title"> </h5> {% endcomment %}
-          {% comment %} <h6 class="card-subtitle mb-2 text-muted"></h6> {% endcomment %}
+   
           <table class="table">
             <thead>
            <tr>
@@ -36,7 +35,7 @@
           <th scope="col">Marque</th>
           <th scope="col">Type</th>
           <th scope="col">Date</th>
-          <th scope="col">Action</th>
+          
           
         </tr>
       </thead>
@@ -47,11 +46,7 @@
         <td>{{item.voiture.marque}}</td>
         <td>{{item.type}}</td>
         <td>{{item.date}}</td>
-        <td>
-            <a class="" href="#"><i class="fas fa-user-plus"></i></a>
-                     <a  href="#" > <i class="fas fa-edit"></i></a>   
-                     <a class="text-danger" href="#" ><i class="fas fa-trash-alt"></i></a>  
-        </td>
+        
          </tr>
         {% endfor %} 
       
@@ -63,6 +58,6 @@
 </div>
 {% comment %} #-------------------------------- {% endcomment %}
 
-     
+</center>
 
 {% endblock %}

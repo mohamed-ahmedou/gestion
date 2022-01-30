@@ -1,4 +1,4 @@
-{% extends 'Bourse/Principale.html' %}
+{% extends 'Bourse/Principaleclient.html' %}
 {% load static %}
 {% block content %}
 
@@ -9,12 +9,12 @@
     <div class= "col-4" > 
       <div class="col-md-5">
         <div class="card" style="width: 25rem;">
-          <img class="card-img-top" src="{{item.image.url}}" width="90%" height="20%" alt="Card image cap">
+          <img class="card-img-top" src="{{item.image.url }}" width="90%" height="20%" alt="Card image cap">
           <div class="card-body">
            <h5 class="card-title">{{item.id}}</h5>
             <p class="card-text">{{item.modele}}</p>
             <p> {{ item.marque }} </p>
-            <a href="{% url 'voirevoiture'%}" class="btn btn-primary">Voir</a> 
+            <a href="{% url 'voirevoiture' item.id %}" class="btn btn-primary">Voir Details</a> 
           </div>
     
         </div>
@@ -27,7 +27,7 @@
 
   </div>
   
-<div class="container">
+{% comment %} <div class="container">
     <table class="table">
         <thead>
           <tr>
@@ -58,17 +58,16 @@
             <td>{{item.client}}</td>
             <td><img src="{{item.image.url}}" width="90%"  /> </td>
             <td>
-            <a class="" href="#"><i class="fas fa-user-plus"></i></a>
+            <a class="" href="{% url 'Ajoutvoiture' %}"><i class="fas fa-user-plus"></i></a>
             <a  href="#" > <i class="fas fa-edit"></i></a>   
             <a class="text-danger" href="#" ><i class="fas fa-trash-alt"></i></a>
             </td>
-            {% comment %} <td> <a href="{% url 'operation'  %}"> <i class="far fa-eye"></i> </a></td> {% endcomment %}
             <td> <a href="/operation/{{item.id}}"> <i class="far fa-eye"></i> </a></td>
              </tr>
             {% endfor %} 
           
         </tbody>
       </table>
-     </div>
+     </div> {% endcomment %}
 
 {% endblock %}

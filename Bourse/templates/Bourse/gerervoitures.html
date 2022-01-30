@@ -1,0 +1,83 @@
+{% extends 'Bourse/Principale.html' %}
+{% load static %}
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'formaj/fonts/icomoon/style.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'formaj/css/bootstrap.min.css' %} ">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'formaj/css/style.css' %}">
+
+    <title>Ajouclient </title>
+  </head>
+  <body>
+  
+    
+      <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="col-md-12">
+          <div class="form h-100">
+            <h3></h3>
+
+
+<div class="row" >
+    <center>
+    <h6 class=""><a class="btn btn-primary rounded-0 py-2 px-4" href="{% url 'Ajoutvoiture' %}">Ajouter</a></h6>
+    </center>
+</div>
+<div class="row">
+  <h1 class="p-3">  </h1>
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Matricule</th>
+            <th scope="col">Marque</th>
+            <th scope="col">Couleur</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Modele</th>
+            <th scope="col">Numerosachet</th>
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
+            <th scope="col">Afficher</th>
+            
+
+          </tr>
+        </thead>
+        <tbody>
+            {% for item in voituree %}
+              <tr>
+                
+            <td>{{item.matricule}}</td>
+            <td>{{item.marque}}</td>
+            <td>{{item.couleur}}</td>
+            <td>{{item.prix}}</td>  
+            <td>{{item.modele}}</td>
+            <td>{{item.numerosachet}}</td>
+            {% if item.image %}
+            <td><img src="{{item.image.url}}" width="70%" > </td>
+            {% endif %}
+            <td>
+            {% comment %} <a class="" href="{% url 'Ajoutvoiture' %}"><i class="fas fa-user-plus"></i></a> {% endcomment %}
+            <a  href="/Modifiervoiture/{{item.id}}" > <i class="fas fa-edit"></i></a>   
+            <a class="text-danger" href="/supprimervoiture/{{item.id}}" ><i class="fas fa-trash-alt"></i></a>
+            </td>
+            <td> <a href="/operation/{{item.id}}"> <i class="far fa-eye"></i> </a></td>
+             </tr>
+            {% endfor %} 
+          
+        </tbody>
+      </table>
+     </div>
+
+
+     {% endblock %}

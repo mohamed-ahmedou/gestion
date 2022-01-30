@@ -31,7 +31,7 @@ class Voiture(models.Model):
     modele = models.CharField(max_length=40)
     numerosachet = models.CharField(max_length=40)
     image = models.ImageField(upload_to='static/image', null=True)
-    client = models.ForeignKey(Client ,related_name='voitures', on_delete=models.CASCADE)
+    # client = models.ForeignKey(Client ,related_name='voitures', on_delete=models.CASCADE)
     def __str__(self):
       return self.modele
     

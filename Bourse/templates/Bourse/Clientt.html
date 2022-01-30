@@ -1,33 +1,41 @@
 {% extends 'Bourse/Principale.html' %}
-
+{% load static%}
 {% block content %}
 
-<h1 class="p-3"> Client </h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
 
-{% comment %} <div class="container pb-5">
-    <div class="row">
-      <div class="col-sm">
-      <h6> Nom : {{ client.nom }} </h6>
-      </div>
-      <div class="col-sm">
-        <h6> Prenom : {{ client.prenom }} </h6>
-      </div>
-      <div class="col-sm">
-        <h6> Tel : {{ client.tel }} </h6>
-    </div>
-    <div class="col-sm">
-        <h6> Email : {{ client.email }} </h6>
-    </div>
-    <div class="col-sm">
-      <h6> Nombre du facture : {{nombre_facture}} </h6>
-  </div>
+    <link rel="stylesheet" href="{% static 'formaj/fonts/icomoon/style.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'formaj/css/bootstrap.min.css' %} ">
     
-</div> {% endcomment %}
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'formaj/css/style.css' %}">
+
+    <title>Ajouclient </title>
+  </head>
+  <body>
+  
+    
+      <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="col-md-12">
+          <div class="form h-100">
+            <h3></h3>
+
+
+<div class="row" >
+  <center>
+  <h6 class=""><a class="btn btn-primary rounded-0 py-2 px-4" href="{% url 'Ajoutclient' %}">Ajouter</a></h6>
+  </center>
+
 <div class="container p-2">
-    {% comment %} <div class="card" >
-        <div class="card-body"> {% endcomment %}
-          {% comment %} <h5 class="card-title"> </h5> {% endcomment %}
-          {% comment %} <h6 class="card-subtitle mb-2 text-muted"></h6> {% endcomment %}
+    
           <table class="table">
             <thead>
            <tr>
@@ -49,9 +57,9 @@
         <td>{{item.tel}}</td>
         
         <td>
-            <a class="" href="#"><i class="fas fa-user-plus"></i></a>
-                     <a  href="#" > <i class="fas fa-edit"></i></a>   
-                     <a class="text-danger" href="#" ><i class="fas fa-trash-alt"></i></a>  
+            
+                     <a  href="{% url 'modifierclient' item.id %}" > <i class="fas fa-edit"></i></a>   
+                     <a class="text-danger" href="{% url 'supprimerclient' item.id %}" ><i class="fas fa-trash-alt"></i></a>  
         </td>
          </tr>
         {% endfor %} 
