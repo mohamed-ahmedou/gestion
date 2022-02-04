@@ -2,15 +2,41 @@
 {% load static %}
 {% block content %}
 
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'formaj/fonts/icomoon/style.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'formaj/css/bootstrap.min.css' %} ">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'formaj/css/style.css' %}">
+
+    <title>Ajouclient </title>
+  </head>
+  <body>
+  
+    
+      <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="col-md-12">
+          <div class="form h-100">
+            <h3></h3>
+
             
             <div class="row">
              <div class= "col-4" > 
                <div class="col-md-5">
                 <div class="card" style="width: 25rem;">
                    <div class="card-body">
-                        <p class="card-text">Marque: {{vv.marque}}</p>
-                         <p class="card-text">Couleur: {{vv.couleur}}</p>
-                         <p class="card-text">Prix: {{vv.prix}}</p>
+                        <p class="card-text">Marque: <span class="badge bg-success">{{ vv.marque }}</span> </p>
+                         <p class="card-text">Couleur: <span class="badge rounded-pill bg-info text-dark">{{ vv.couleur }}</span></p>
+                         <p class="card-text">Prix: <span class="badge bg-warning text-dark">{{vv.prix}}</span></p>
                          <p class="card-text">Modele: {{vv.modele}}</p>
                          <p class="card-text">Numero sachet: {{vv.numerosachet}}</p>
                   </div>

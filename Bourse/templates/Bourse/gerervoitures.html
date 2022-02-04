@@ -64,14 +64,14 @@
             <td>{{item.modele}}</td>
             <td>{{item.numerosachet}}</td>
             {% if item.image %}
-            <td><img src="{{item.image.url}}" width="70%" > </td>
+            <td><img src="{{item.image.url}}" width="80%" > </td>
             {% endif %}
             <td>
             {% comment %} <a class="" href="{% url 'Ajoutvoiture' %}"><i class="fas fa-user-plus"></i></a> {% endcomment %}
             <a  href="/Modifiervoiture/{{item.id}}" > <i class="fas fa-edit"></i></a>   
             <a class="text-danger" href="/supprimervoiture/{{item.id}}" ><i class="fas fa-trash-alt"></i></a>
             </td>
-            <td> <a href="/operation/{{item.id}}"> <i class="far fa-eye"></i> </a></td>
+            <td> <a href="{% url 'voitureoperation' item.id %}"> <i class="far fa-eye"></i> </a></td>
              </tr>
             {% endfor %} 
           

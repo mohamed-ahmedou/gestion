@@ -1,0 +1,85 @@
+{% extends 'Bourse/Principale.html' %}
+{% load static %}
+{% block content %}
+
+<center>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'formaj/fonts/icomoon/style.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'formaj/css/bootstrap.min.css' %} ">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'formaj/css/style.css' %}">
+
+    <title>Ajoutoperation </title>
+  </head>
+  <body>
+  
+
+  <div class="content">
+    
+    <div class="container">
+      <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="col-md-12">
+          <div class="form h-100">
+            <h3>Client</h3>
+            <form class="mb-5" Action="" method="POST" >
+                {% csrf_token %}
+              <div class="row">
+                <div class="col-md-3 form-group mb-2">
+                  
+                <input type="text" class="form-control" name="nom" id="nom" placeholder="nom">
+                </div>
+                <div class="col-md-3 form-group mb-2">
+                  
+                  <input type="text" class="form-control" name="prenom" id="prenom"  placeholder="voiture">
+                </div>
+              </div>
+              
+    
+
+              <div class="row">
+              <div class="row">
+                <div class="col-md-15 form-group">
+                  <input type="submit" value="Ajouter" class="btn btn-primary rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                </div>
+              </div>
+            </form>
+
+            <div id="form-message-warning mt-4"></div> 
+            <div id="form-message-success">
+            
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    
+    
+  
+    <script src="{% static 'formaj/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'formaj/js/popper.min.js"></script' %}"> </script>
+    <script src="{% static 'formaj/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'formaj/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'formaj/js/main.js' %} "></script>
+
+  </body>
+</html>
+
+
+</center>
+
+{% endblock %}

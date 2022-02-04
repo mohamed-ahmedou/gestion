@@ -46,7 +46,7 @@ class Image(models.Model):
 class Operation(models.Model):
     nom = models.CharField(max_length=50)
     date = models.DateTimeField(auto_now_add=True)
-    voiture = models.ForeignKey(Voiture ,related_name='voitures', on_delete=models.CASCADE)
+    voiture = models.ForeignKey(Voiture, null=True, on_delete=models.SET_NULL)
 	
     def __str__(self):
         return self.nom

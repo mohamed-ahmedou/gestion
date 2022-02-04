@@ -1,6 +1,7 @@
 
 from contextlib import redirect_stderr
 import email
+from multiprocessing import context
 from webbrowser import Opera
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -70,6 +71,16 @@ def client(request,pk):
                'nombre_facture':  nombre_facture }           
     return render(request, 'Bourse/Client.html', context)   
 
+def ooperation(request):
+    ooperation = Operation.objects.all()
+    return render(request, 'Bourse/operation.html',{'ooperation':ooperation})
+
+def voitureoperation(request,voiture_id):
+    voitureop = Voiture.objects.get(pk = voiture_id) 
+    operations = voitureop.operation_set.all()
+    context = {'voitureop': voitureop,
+               'operations': operations} 
+    return render(request, 'Bourse/operation.html', context )  
 
 def Ajoutvoiture(request):
     if request.method=="POST":   
@@ -130,6 +141,16 @@ def supprimerclient(request, myid):
     client = Client.objects.filter(id=myid)
     client.delete()
     return redirect("/clientt")  
+
+def Ajoutoperation(request):
+    if request.method=="POST":   
+        nom = request.POST['nom']
+        voiture = request.POST['voiture']
+        c = Operation.objects.create(nom = nom, voiture = voiture)
+        c.save()
+        return redirect("/gerervoitures")  
+    return render(request, 'Bourse/Ajoutoperation.html')
+
 
 def ajouter(request):
    form = FactureForm()

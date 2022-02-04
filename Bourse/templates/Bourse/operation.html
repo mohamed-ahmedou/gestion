@@ -1,7 +1,39 @@
 {% extends 'Bourse/Principale.html' %}
-
+{% load static %}
 {% block content %}
 
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'formaj/fonts/icomoon/style.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'formaj/css/bootstrap.min.css' %} ">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'formaj/css/style.css' %}">
+
+    <title>Ajouclient </title>
+  </head>
+  <body>
+  
+    
+      <div class="row align-items-stretch no-gutters contact-wrap">
+        <div class="col-md-12">
+          <div class="form h-100">
+            <h3></h3>
+
+
+<div class="row" >
+    <center>
+    <h6 class=""><a class="btn btn-primary rounded-0 py-2 px-4" href="{% url 'Ajoutoperation' %}">Ajouter</a></h6>
+    </center>
+</div>
 <h1 class="p-3"> Operation</h1>
 
 
@@ -14,21 +46,16 @@
           <th scope="col">Nom</th>
           <th scope="col">Voiture</th>
           <th scope="col">Date</th>
-          <th scope="col">Action</th>
+          
           
         </tr>
       </thead>
       <tbody>
-        {% for item in operations%}
+        {% for operation in operations %}
           <tr>
-        <td>{{item.nom}}</td>
-        <td>{{item.voiture}}</td>
-        <td>{{item.date}}</td>
-        <td>
-            <a class="" href="#"><i class="fas fa-user-plus"></i></a>
-                     <a  href="#" > <i class="fas fa-edit"></i></a>   
-                     <a class="text-danger" href="#" ><i class="fas fa-trash-alt"></i></a>  
-        </td>
+        <td>{{operation.nom}}</td>
+        <td>{{operation.voiture}}</td>
+        <td>{{operation.date}}</td>
          </tr>
         {% endfor %} 
       

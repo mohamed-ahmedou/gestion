@@ -28,5 +28,7 @@ urlpatterns = [
     path('Ajoutclient/',views.Ajoutclient, name="Ajoutclient"),
     path('modifierclient/<int:myid>/',views.modifierclient, name="modifierclient"),
     path('supprimerclient/<int:myid>/',views.supprimerclient, name="supprimerclient"),
+    path('voitureoperation/<int:voiture_id>/',views.voitureoperation, name="voitureoperation"),
+    path('Ajoutoperation/',views.Ajoutoperation, name="Ajoutoperation"),
     # path('Elouss6oura',views.elouss6oura),
 ]
